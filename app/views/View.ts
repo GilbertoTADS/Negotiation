@@ -4,8 +4,10 @@ export abstract class View<T>{
     private escapar:boolean = false;
 
     constructor(seletor:string,escapar?:boolean){
-        this.elemento = document.querySelector(seletor);
-        this.escapar = escapar == undefined ? escapar: true;
+        const elemento = document.querySelector(seletor);
+        if(elemento) this.elemento = elemento as HTMLElement;
+        else throw Error(`Seletor nao existe no DOM. Verifique`)
+        this.escapar = escapar == undefined ? false: true;
     }
     update(model:T):void{
         let template = this.template(model);
