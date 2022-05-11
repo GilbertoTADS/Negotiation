@@ -8,13 +8,14 @@ export class Negociacao {
         return this.quantidade * this.valor;
     }
     get data() {
-        return new Date(this._data.getTime());
+        const data = new Date(this._data.getTime());
+        return data;
     }
-    static criaDe(dataParam, quantidadeParam, valorParam) {
-        const exp = /-/gi;
-        const date = new Date(dataParam.replace(exp, ","));
-        const quantidade = parseInt(quantidadeParam);
-        const valor = parseFloat(valorParam);
+    static criaDe(dataString, quantidadeString, valorString) {
+        const exp = /-/g;
+        const date = new Date(dataString.replace(exp, ','));
+        const quantidade = parseInt(quantidadeString);
+        const valor = parseFloat(valorString);
         return new Negociacao(date, quantidade, valor);
     }
 }
