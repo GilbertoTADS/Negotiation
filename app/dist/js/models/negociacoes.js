@@ -20,3 +20,4 @@ export class Negociacoes {
         return JSON.stringify(this) === JSON.stringify(objeto);
     }
 }
+//# sourceMappingURL=negociacoes.js.map
