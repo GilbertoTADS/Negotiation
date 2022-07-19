@@ -1,7 +1,7 @@
-import { Imprimivel } from '../utils/imprimivel.js';
+import { Modelo } from '../interfaces/modelo.js';
 import { Negociacao } from './negociacao.js';
 
-export class Negociacoes extends Imprimivel{
+export class Negociacoes implements Modelo<Negociacoes>{
    
     private negociacoes: Negociacao[] = [];
 
@@ -19,5 +19,8 @@ export class Negociacoes extends Imprimivel{
             }
         texto+' ]'
         return texto;
+    }
+    public ehIgual(objeto: Negociacoes): boolean {
+        return JSON.stringify(this) === JSON.stringify(objeto);
     }
 }
